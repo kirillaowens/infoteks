@@ -1,8 +1,24 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
-import { Flex, Input, Typography } from "antd";
-import CustomButton from "../../../shared/ul/Button/CustomButton";
+import { Alert, Flex, Input, Typography } from "antd";
+import { loginRequest } from "../api/login";
+import CustomButton from "../../../shared/ui/Button/CustomButton";
 
 function Auth() {
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const { mutate, isPending, error } = useMutation({
+    mutationFn: () => loginRequest(login, password),
+    onSuccess: (token) => {
+      localStorage.setItem("token", token);
+      navigate("/users");
+    },
+  });
+
   return (
     <Flex
       style={{
@@ -19,15 +35,29 @@ function Auth() {
           margin: "20px 0",
         }}
       >
-        <Input placeholder="Логин" />
+        <Input
+          placeholder="Логин"
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
+        />
+
+        {error && <Alert type="error" title={error.message} />}
+
         <Input.Password
           placeholder="Пароль"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           iconRender={(visible) =>
             visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
           }
         />
       </Flex>
-      <CustomButton title="Войти" />
+      <CustomButton
+        title="Войти"
+        pendingStatus={isPending}
+        onClickAction={() => mutate()}
+        isDisabled={!login || !password}
+      />
     </Flex>
   );
 }

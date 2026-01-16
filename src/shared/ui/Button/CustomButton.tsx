@@ -2,7 +2,12 @@ import React from "react";
 import { Button } from "antd";
 import { CustomButtonProps } from "../../types/buttonTypes";
 
-function CustomButton({ title }: CustomButtonProps) {
+function CustomButton({
+  title,
+  pendingStatus,
+  onClickAction,
+  isDisabled,
+}: CustomButtonProps) {
   return (
     <Button
       style={{
@@ -11,6 +16,9 @@ function CustomButton({ title }: CustomButtonProps) {
         padding: "17px",
         alignSelf: "flex-end",
       }}
+      loading={pendingStatus}
+      onClick={onClickAction}
+      disabled={isDisabled}
     >
       {title}
     </Button>
