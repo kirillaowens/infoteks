@@ -48,7 +48,7 @@ function Auth() {
             visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
           }
         />
-        {error && <Alert type="error" title={error.message} />}
+        {error && <Alert type="error" message={error.message} />}
       </Flex>
       <CustomButton
         title="Войти"
