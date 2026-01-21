@@ -40,9 +40,6 @@ function Auth() {
           value={login}
           onChange={(e) => setLogin(e.target.value)}
         />
-
-        {error && <Alert type="error" title={error.message} />}
-
         <Input.Password
           placeholder="Пароль"
           value={password}
@@ -51,6 +48,7 @@ function Auth() {
             visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
           }
         />
+        {error && <Alert type="error" title={error.message} />}
       </Flex>
       <CustomButton
         title="Войти"

@@ -14,3 +14,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.flex {
+  display: flex;
+}
+
+.indent {
+  margin: 3vh 10vw;
+}

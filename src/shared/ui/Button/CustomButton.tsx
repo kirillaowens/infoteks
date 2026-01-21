@@ -7,14 +7,20 @@ function CustomButton({
   pendingStatus,
   onClickAction,
   isDisabled,
+  style,
 }: CustomButtonProps) {
+  const defaultStyle = {
+    backgroundColor: "#1E6297",
+    color: "white",
+    padding: "17px",
+    alignSelf: "flex-end",
+  };
+
   return (
     <Button
       style={{
-        backgroundColor: "#1E6297",
-        color: "white",
-        padding: "17px",
-        alignSelf: "flex-end",
+        ...defaultStyle,
+        ...style,
       }}
       loading={pendingStatus}
       onClick={onClickAction}

@@ -1,5 +1,7 @@
-import { User } from "../../../entities/user/model/types";
+import { CSSProperties } from "react";
+import { User } from "../../../entities/user/types/types";
 
-export type UsersListProps = {
+export type UsersListType = {
   users: User[];
+  style?: CSSProperties;
 };
