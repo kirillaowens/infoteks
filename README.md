@@ -1,7 +1,21 @@
-# Getting Started
+# Infoteks test task
 
-### `npm start`
+## Getting Started
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Follow the instructions below to set up and run the project locally.
 
-[![wakatime](https://wakatime.com/badge/user/1edd7940-aa59-4ec8-8912-6cdd29b48875/project/279530e6-ce94-4536-9ada-618f2de84c67.svg)](https://wakatime.com/badge/user/1edd7940-aa59-4ec8-8912-6cdd29b48875/project/279530e6-ce94-4536-9ada-618f2de84c67)
+## Installation
+
+Install all required dependencies:
+
+```bash
+npm install
+```
+## Running the App
+
+Start the development server:
+
+```bash
+npm start
+```
+Open http://localhost:3000 in your browser to view the application.
